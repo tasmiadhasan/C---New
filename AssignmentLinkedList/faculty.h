@@ -2,36 +2,41 @@
 #define FACULTY_H
 
 #include <iostream>
-#include <string>
-using namespace std;
+#include <cstring>
 
-// Macros
 #define MAX_NAME_LENGTH 100
+#define MAX_INITIAL_LENGTH 10
+#define MAX_COURSES 5
 
-// Enum for user types
-enum UserType {
-    STUDENT,
-    FACULTY,
-    ADMIN,
-    COURSELIST
+enum Designation {
+    PROFESSOR,
+    ASSOCIATE_PROFESSOR,
+    ASSISTANT_PROFESSOR,
+    LECTURER
 };
 
-// Struct for doubly linked list node
+enum MenuOption {
+    INSERT = 1,
+    DELETE,
+    MODIFY,
+    DISPLAY,
+    EXIT
+};
+
 struct FacultyNode {
     int id;
     char name[MAX_NAME_LENGTH];
+    char initial[MAX_INITIAL_LENGTH];
+    Designation designation;
+    char courses[MAX_COURSES][MAX_NAME_LENGTH];
     FacultyNode* prev;
     FacultyNode* next;
 };
 
-// Function prototypes
-void insertFaculty(FacultyNode** head, int id, const char* name);
-void deleteFaculty(FacultyNode** head, int id);
-void modifyFaculty(FacultyNode* head, int id, const char* newName);
-
-// Menu function with callback
-typedef void (*MenuCallback)(FacultyNode** head);
-
-void menu(FacultyNode** head, MenuCallback insertCb, MenuCallback deleteCb, MenuCallback modifyCb);
+void insert(FacultyNode*& head, int id, const char* name, const char* initial, Designation designation, const char courses[MAX_COURSES][MAX_NAME_LENGTH]);
+void deleteNode(FacultyNode*& head, int id);
+void modify(FacultyNode*& head, int id, const char* name, const char* initial, Designation designation, const char courses[MAX_COURSES][MAX_NAME_LENGTH]);
+void display(FacultyNode* head);
+void menu(FacultyNode*& head);
 
 #endif // FACULTY_H
