@@ -27,7 +27,7 @@ void print(node* &head){
 int main(){
     node* node1=new node(10);
     node* head=node1;
-    insertatHead(head,12);
     print(head);
+    insertatHead(head,12);
 
 }

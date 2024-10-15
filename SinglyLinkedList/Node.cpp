@@ -1,3 +1,4 @@
+//Node creation and printing data and next pointer
 #include<iostream>
 using namespace std;
 class node{

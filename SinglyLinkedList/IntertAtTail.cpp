@@ -9,25 +9,24 @@ class node{
         this->next=NULL;
     }
 };
-void insertatHead(node* &head,int new_data){
-    node* temp=new node(new_data);
-    temp->next=head;
-    head=temp;
-
-};
+void insertatTail(node* & tail,int data){
+    node* temp=new node(data);
+    tail->next=temp;
+    tail=tail->next;
+}
 void print(node* &head){
     node* temp=head;
     while(temp!=NULL){
         cout<<temp->data<<" ";
-        temp= temp->next;
+        temp=temp->next;
     }
     cout<<endl;
 }
-
 int main(){
-    node* node1=new node(10);
+    node* node1=new node(14);
     node* head=node1;
-    insertatHead(head,12);
+    node* tail=node1;
+    insertatTail(tail,15);
     print(head);
-
 }
+
