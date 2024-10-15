@@ -13,7 +13,8 @@ void insertatHead(node* &head,int new_data){
     node* temp=new node(new_data);
     temp->
 
-}
+};
+
 int main(){
     node* node1=new node(10);
     cout<<node1->data<<endl;
