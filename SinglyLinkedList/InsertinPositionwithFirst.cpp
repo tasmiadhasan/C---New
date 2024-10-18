@@ -25,6 +25,7 @@ void insertinHead(node* &head,int data){
 void insertinPosition(node* &head,int position,int data){
     if(position==1){
         insertinHead(head,data);
+        return;
     }
     else{
     node* temp=head;
